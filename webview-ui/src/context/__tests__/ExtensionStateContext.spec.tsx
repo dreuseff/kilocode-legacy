@@ -227,7 +227,6 @@ describe("mergeExtensionState", () => {
 	it("should correctly merge extension states", () => {
 		const baseState: ExtensionState = {
 			version: "",
-			isPreRelease: false, // kilocode_change
 			mcpEnabled: false,
 			enableMcpServerCreation: false,
 			clineMessages: [],

@@ -579,7 +579,6 @@ export type ExtensionState = Pick<
 	| "selectedMicrophoneDevice" // kilocode_change: Selected microphone device for STT
 > & {
 	version: string
-	isPreRelease: boolean // kilocode_change: Whether the extension is running on the pre-release channel
 	clineMessages: ClineMessage[]
 	currentTaskItem?: HistoryItem
 	currentTaskTodos?: TodoItem[] // Initial todos for the current task
@@ -982,7 +981,6 @@ export interface WebviewMessage {
 		| "debugSetting"
 		| "refreshSkills"
 		| "reviewScopeSelected" // kilocode_change: Review mode scope selection
-		| "switchToPreRelease" // kilocode_change: Switch to pre-release channel
 	text?: string
 	suggestionLength?: number // kilocode_change: Length of accepted suggestion for telemetry
 	completionRequestId?: string // kilocode_change

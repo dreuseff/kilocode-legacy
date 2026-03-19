@@ -636,8 +636,7 @@
 			"high": "Wysoki",
 			"xhigh": "Bardzo wysoki",
 			"medium": "Średni",
-			"low": "Niski",
-			"xhigh": "Bardzo wysoki"
+			"low": "Niski"
 		},
 		"verbosity": {
 			"label": "Szczegółowość danych wyjściowych",
@@ -1103,12 +1102,6 @@
 			"import": "Importuj",
 			"export": "Eksportuj",
 			"reset": "Resetuj"
-		},
-		"preRelease": {
-			"title": "Kanał Pre-release",
-			"description": "Przełącz się na kanał pre-release, aby uzyskać wcześniejszy dostęp do nowych funkcji i poprawek błędów przed ich oficjalnym wydaniem.",
-			"switchButton": "Przełącz na Pre-release",
-			"alreadyOnPreRelease": "Jesteś na Pre-release"
 		}
 	},
 	"thinkingBudget": {

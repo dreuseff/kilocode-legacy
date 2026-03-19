@@ -608,10 +608,9 @@
 			"none": "Nenhum",
 			"minimal": "Mínimo (mais rápido)",
 			"high": "Alto",
-			"xhigh": "Muito alto",
+			"xhigh": "Extra Alto",
 			"medium": "Médio",
-			"low": "Baixo",
-			"xhigh": "Extra Alto"
+			"low": "Baixo"
 		},
 		"verbosity": {
 			"label": "Verbosidade da saída",
@@ -1103,12 +1102,6 @@
 			"import": "Importar",
 			"export": "Exportar",
 			"reset": "Redefinir"
-		},
-		"preRelease": {
-			"title": "Canal de Pré-lançamento",
-			"description": "Mude para o canal de pré-lançamento para ter acesso antecipado a novos recursos e correções de bugs antes que sejam lançados oficialmente.",
-			"switchButton": "Mudar para Pré-lançamento",
-			"alreadyOnPreRelease": "Você está no Pré-lançamento"
 		}
 	},
 	"thinkingBudget": {

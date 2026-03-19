@@ -639,10 +639,9 @@
 			"none": "なし",
 			"minimal": "最小 (最速)",
 			"high": "高",
-			"xhigh": "非常に高い",
+			"xhigh": "極高",
 			"medium": "中",
-			"low": "低",
-			"xhigh": "極高"
+			"low": "低"
 		},
 		"verbosity": {
 			"label": "出力の冗長性",
@@ -1108,12 +1107,6 @@
 			"import": "インポート",
 			"export": "エクスポート",
 			"reset": "リセット"
-		},
-		"preRelease": {
-			"title": "プレリリースチャンネル",
-			"description": "プレリリースチャンネルに切り替えると、新機能やバグ修正に正式リリース前に早期アクセスできます。",
-			"switchButton": "プレリリースに切り替え",
-			"alreadyOnPreRelease": "プレリリース中です"
 		}
 	},
 	"thinkingBudget": {

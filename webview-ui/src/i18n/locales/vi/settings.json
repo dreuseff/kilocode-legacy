@@ -636,8 +636,7 @@
 			"high": "Cao",
 			"xhigh": "Rất cao",
 			"medium": "Trung bình",
-			"low": "Thấp",
-			"xhigh": "Rất cao"
+			"low": "Thấp"
 		},
 		"verbosity": {
 			"label": "Mức độ chi tiết đầu ra",
@@ -1103,12 +1102,6 @@
 			"import": "Nhập",
 			"export": "Xuất",
 			"reset": "Đặt lại"
-		},
-		"preRelease": {
-			"title": "Kênh Pre-release",
-			"description": "Chuyển sang kênh pre-release để truy cập sớm các tính năng mới và bản sửa lỗi trước khi chúng được phát hành chính thức.",
-			"switchButton": "Chuyển sang Pre-release",
-			"alreadyOnPreRelease": "Bạn đang ở Pre-release"
 		}
 	},
 	"thinkingBudget": {

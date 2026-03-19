@@ -170,9 +170,6 @@ export class ClineProvider
 	private currentWorkspacePath: string | undefined
 	private autoPurgeScheduler?: any // kilocode_change - (Any) Prevent circular import
 	private deviceAuthHandler?: DeviceAuthHandler // kilocode_change - Device auth handler
-	// kilocode_change: Detect whether the extension is running on the pre-release channel
-	private readonly isPreRelease: boolean =
-		vscode.extensions.getExtension("kilocode.kilo-code")?.packageJSON?.isPreReleaseVersion === true
 
 	private recentTasksCache?: string[]
 	private pendingOperations: Map<string, PendingEditOperation> = new Map()
@@ -2376,7 +2373,6 @@ export class ClineProvider
 
 		return {
 			version: this.context.extension?.packageJSON?.version ?? "",
-			isPreRelease: this.isPreRelease, // kilocode_change: Include pre-release status in state
 			apiConfiguration,
 			customInstructions,
 			alwaysAllowReadOnly: alwaysAllowReadOnly ?? true,
@@ -2694,7 +2690,6 @@ export class ClineProvider
 
 		// Return the same structure as before.
 		return {
-			isPreRelease: this.isPreRelease,
 			apiConfiguration: providerSettings,
 			kilocodeDefaultModel: (
 				await getKilocodeDefaultModel(providerSettings.kilocodeToken, providerSettings.kilocodeOrganizationId)

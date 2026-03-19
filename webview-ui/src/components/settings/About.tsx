@@ -4,7 +4,7 @@ import {
 } from "react"
 import { useAppTranslation } from "@/i18n/TranslationContext"
 import { Trans } from "react-i18next"
-import { Info, Download, Upload, TriangleAlert, Rocket, Check } from "lucide-react"
+import { Info, Download, Upload, TriangleAlert } from "lucide-react"
 import { VSCodeCheckbox, VSCodeLink } from "@vscode/webview-ui-toolkit/react"
 
 import type { TelemetrySetting } from "@roo-code/types"
@@ -23,7 +23,6 @@ type AboutProps = HTMLAttributes<HTMLDivElement> & {
 	telemetrySetting: TelemetrySetting
 	setTelemetrySetting: (setting: TelemetrySetting) => void
 	isVsCode: boolean // kilocode_change
-	isPreRelease: boolean // kilocode_change: Whether the extension is on the pre-release channel
 	uriScheme?: string // kilocode_change: IDE protocol scheme (vscode, vscode-insiders, cursor, etc.)
 }
 
@@ -32,7 +31,6 @@ export const About = ({
 	setTelemetrySetting,
 	className,
 	isVsCode, // kilocode_change
-	isPreRelease, // kilocode_change
 	uriScheme, // kilocode_change
 	...props
 }: AboutProps) => {
@@ -94,32 +92,6 @@ export const About = ({
 						}}
 					/>
 				</div>
-				{/* kilocode_change end */}
-
-				{/* kilocode_change start: Pre-release channel section (only for VS Code / VS Code Insiders) */}
-				{(uriScheme === "vscode" || uriScheme === "vscode-insiders") && (
-					<div className="mt-2">
-						<p className="text-vscode-foreground text-sm font-medium mb-1">
-							{t("settings:footer.preRelease.title")}
-						</p>
-						<p className="text-vscode-descriptionForeground text-xs mb-2">
-							{t("settings:footer.preRelease.description")}
-						</p>
-						{isPreRelease ? (
-							<Button disabled className="w-auto opacity-70">
-								<Check className="p-0.5" />
-								{t("settings:footer.preRelease.alreadyOnPreRelease")}
-							</Button>
-						) : (
-							<Button
-								onClick={() => vscode.postMessage({ type: "switchToPreRelease" })}
-								className="w-auto">
-								<Rocket className="p-0.5" />
-								{t("settings:footer.preRelease.switchButton")}
-							</Button>
-						)}
-					</div>
-				)}
 				{/* kilocode_change end */}
 
 				<div className="flex flex-wrap items-center gap-2 mt-2">
