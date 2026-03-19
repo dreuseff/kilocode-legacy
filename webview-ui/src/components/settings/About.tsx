@@ -105,19 +105,10 @@ export const About = ({
 						<p className="text-vscode-descriptionForeground text-xs mb-2">
 							{t("settings:footer.preRelease.description")}
 						</p>
-						{isPreRelease ? (
-							<Button disabled className="w-auto opacity-70">
-								<Check className="p-0.5" />
-								{t("settings:footer.preRelease.alreadyOnPreRelease")}
-							</Button>
-						) : (
-							<Button
-								onClick={() => vscode.postMessage({ type: "switchToPreRelease" })}
-								className="w-auto">
-								<Rocket className="p-0.5" />
-								{t("settings:footer.preRelease.switchButton")}
-							</Button>
-						)}
+						<Button onClick={() => vscode.postMessage({ type: "switchToPreRelease" })} className="w-auto">
+							<Rocket className="p-0.5" />
+							{t("settings:footer.preRelease.switchButton")}
+						</Button>
 					</div>
 				)}
 				{/* kilocode_change end */}
