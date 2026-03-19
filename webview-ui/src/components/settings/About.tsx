@@ -24,6 +24,7 @@ type AboutProps = HTMLAttributes<HTMLDivElement> & {
 	setTelemetrySetting: (setting: TelemetrySetting) => void
 	isVsCode: boolean // kilocode_change
 	isPreRelease: boolean // kilocode_change: Whether the extension is on the pre-release channel
+	uriScheme?: string // kilocode_change: IDE protocol scheme (vscode, vscode-insiders, cursor, etc.)
 }
 
 export const About = ({
@@ -32,6 +33,7 @@ export const About = ({
 	className,
 	isVsCode, // kilocode_change
 	isPreRelease, // kilocode_change
+	uriScheme, // kilocode_change
 	...props
 }: AboutProps) => {
 	const { t } = useAppTranslation()
@@ -94,26 +96,30 @@ export const About = ({
 				</div>
 				{/* kilocode_change end */}
 
-				{/* kilocode_change start: Pre-release channel section */}
-				<div className="mt-2">
-					<p className="text-vscode-foreground text-sm font-medium mb-1">
-						{t("settings:footer.preRelease.title")}
-					</p>
-					<p className="text-vscode-descriptionForeground text-xs mb-2">
-						{t("settings:footer.preRelease.description")}
-					</p>
-					{isPreRelease ? (
-						<Button disabled className="w-auto opacity-70">
-							<Check className="p-0.5" />
-							{t("settings:footer.preRelease.alreadyOnPreRelease")}
-						</Button>
-					) : (
-						<Button onClick={() => vscode.postMessage({ type: "switchToPreRelease" })} className="w-auto">
-							<Rocket className="p-0.5" />
-							{t("settings:footer.preRelease.switchButton")}
-						</Button>
-					)}
-				</div>
+				{/* kilocode_change start: Pre-release channel section (only for VS Code / VS Code Insiders) */}
+				{(uriScheme === "vscode" || uriScheme === "vscode-insiders") && (
+					<div className="mt-2">
+						<p className="text-vscode-foreground text-sm font-medium mb-1">
+							{t("settings:footer.preRelease.title")}
+						</p>
+						<p className="text-vscode-descriptionForeground text-xs mb-2">
+							{t("settings:footer.preRelease.description")}
+						</p>
+						{isPreRelease ? (
+							<Button disabled className="w-auto opacity-70">
+								<Check className="p-0.5" />
+								{t("settings:footer.preRelease.alreadyOnPreRelease")}
+							</Button>
+						) : (
+							<Button
+								onClick={() => vscode.postMessage({ type: "switchToPreRelease" })}
+								className="w-auto">
+								<Rocket className="p-0.5" />
+								{t("settings:footer.preRelease.switchButton")}
+							</Button>
+						)}
+					</div>
+				)}
 				{/* kilocode_change end */}
 
 				<div className="flex flex-wrap items-center gap-2 mt-2">

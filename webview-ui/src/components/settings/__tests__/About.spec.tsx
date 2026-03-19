@@ -117,6 +117,7 @@ describe("About - Pre-release Channel", () => {
 		setTelemetrySetting: vi.fn(),
 		isVsCode: true,
 		isPreRelease: false,
+		uriScheme: "vscode",
 	}
 
 	beforeEach(() => {
@@ -164,6 +165,42 @@ describe("About - Pre-release Channel", () => {
 		)
 		expect(screen.getByText("settings:footer.preRelease.title")).toBeInTheDocument()
 		expect(screen.getByText("settings:footer.preRelease.description")).toBeInTheDocument()
+	})
+
+	it("shows pre-release section for vscode-insiders", () => {
+		render(
+			<TranslationProvider>
+				<About {...defaultProps} uriScheme="vscode-insiders" />
+			</TranslationProvider>,
+		)
+		expect(screen.getByText("settings:footer.preRelease.title")).toBeInTheDocument()
+	})
+
+	it("hides pre-release section for cursor", () => {
+		render(
+			<TranslationProvider>
+				<About {...defaultProps} uriScheme="cursor" />
+			</TranslationProvider>,
+		)
+		expect(screen.queryByText("settings:footer.preRelease.title")).not.toBeInTheDocument()
+	})
+
+	it("hides pre-release section for vscodium", () => {
+		render(
+			<TranslationProvider>
+				<About {...defaultProps} uriScheme="vscodium" />
+			</TranslationProvider>,
+		)
+		expect(screen.queryByText("settings:footer.preRelease.title")).not.toBeInTheDocument()
+	})
+
+	it("hides pre-release section when uriScheme is undefined", () => {
+		render(
+			<TranslationProvider>
+				<About {...defaultProps} uriScheme={undefined} />
+			</TranslationProvider>,
+		)
+		expect(screen.queryByText("settings:footer.preRelease.title")).not.toBeInTheDocument()
 	})
 })
 // kilocode_change end
