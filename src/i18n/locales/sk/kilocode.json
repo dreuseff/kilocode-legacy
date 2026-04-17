@@ -9,7 +9,7 @@
 	},
 	"lowCreditWarning": {
 		"title": "Varovanie o nízkom kredite!",
-		"message": "Skontroluj, či môžeš doplniť bezplatné kredity alebo si kúpiť ďalšie!"
+		"message": "Dobij si kredity, aby si mohol naďalej používať prémiové modely!"
 	},
 	"task": {
 		"noAssistantMessages": "Odpoveď modelu neočakávane skončila (žiadne správy asistenta). Môže to byť známka obmedzenia počtu požiadaviek.",

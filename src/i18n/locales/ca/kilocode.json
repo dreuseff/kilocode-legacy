@@ -9,7 +9,7 @@
 	},
 	"lowCreditWarning": {
 		"title": "Avís de Crèdit Baix!",
-		"message": "Comprova si pots recarregar amb crèdits gratuïts o comprar-ne més!"
+		"message": "Recarrega els teus crèdits per continuar utilitzant els models premium!"
 	},
 	"task": {
 		"noAssistantMessages": "La resposta del model ha acabat de forma inesperada (cap missatge de l'assistent). Això pot ser un signe de limitació de freqüència.",

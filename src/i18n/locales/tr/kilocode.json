@@ -9,7 +9,7 @@
 	},
 	"lowCreditWarning": {
 		"title": "Düşük Kredi Uyarısı!",
-		"message": "Ücretsiz kredilerle yükleme yapamayacağınızı veya daha fazla satın alıp alamayacağınızı kontrol edin!"
+		"message": "Premium modelleri kullanmaya devam etmek için kredinizi yükleyin!"
 	},
 	"task": {
 		"noAssistantMessages": "Modelin yanıtı beklenmedik şekilde sona erdi (asistan mesajı yok). Bu hız sınırlamasının bir işareti olabilir.",
