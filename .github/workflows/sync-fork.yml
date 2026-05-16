@@ -1,41 +1,102 @@
-name: Sync Fork with Upstream
+name: Sync fork from upstream
 
 on:
   schedule:
-    - cron: '0 7 * * 1,4' # 7:00 UTC every Monday and Thursday
+    - cron: '0 7 * * 1,4' # 07:00 UTC on Monday and Thursday
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  sync_with_upstream:
-    name: Sync main with upstream latest
+  sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      BRANCH: main
 
     steps:
-      - name: Checkout target repo
-        uses: actions/checkout@v5
-        with:
-          ref: main
-          persist-credentials: false
+      - name: Detect upstream parent repo
+        id: upstream
+        run: |
+          set -euo pipefail
 
-      - name: Sync upstream changes
-        id: sync
-        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.1
-        with:
-          target_sync_branch: main
-          target_repo_token: ${{ secrets.GITHUB_TOKEN }}
-          upstream_sync_repo: Kilo-Org/kilocode-legacy
-          upstream_sync_branch: main
-          upstream_pull_args: --ff-only
-        env:
-          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+          parent_repo=$(gh repo view "${GITHUB_REPOSITORY}" --json parent --jq '.parent.nameWithOwner')
 
-      - name: New commits found
-        if: steps.sync.outputs.has_new_commits == 'true'
-        run: echo "New commits were synced."
+          if [ -z "${parent_repo}" ] || [ "${parent_repo}" = "null" ]; then
+            echo "This repository does not appear to be a fork or has no parent configured."
+            exit 1
+          fi
 
-      - name: No new commits
-        if: steps.sync.outputs.has_new_commits == 'false'
-        run: echo "No upstream changes to sync."
+          echo "repo=${parent_repo}" >> "$GITHUB_OUTPUT"
+          echo "Upstream parent repo: ${parent_repo}"
+
+      - name: Check whether fork is behind upstream
+        id: check
+        run: |
+          set -euo pipefail
+
+          behind_by=$(gh api \
+            "/repos/${{ steps.upstream.outputs.repo }}/compare/${BRANCH}...${GITHUB_REPOSITORY}:${BRANCH}" \
+            --jq '.behind_by')
+
+          echo "behind_by=${behind_by}" >> "$GITHUB_OUTPUT"
+
+          if [ "${behind_by}" -gt 0 ]; then
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+            echo "Fork is behind upstream by ${behind_by} commit(s)."
+          else
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            echo "Fork is already up to date."
+          fi
+
+      - name: Show sync status
+        run: |
+          echo "Upstream repo: ${{ steps.upstream.outputs.repo }}"
+          echo "Branch: ${BRANCH}"
+          echo "behind_by: ${{ steps.check.outputs.behind_by }}"
+          echo "has_changes: ${{ steps.check.outputs.has_changes }}"
+
+      - name: Add job summary
+        run: |
+          {
+            echo "## Fork sync status"
+            echo ""
+            echo "- Upstream repo: \`${{ steps.upstream.outputs.repo }}\`"
+            echo "- Branch: \`${BRANCH}\`"
+            echo "- behind_by: \`${{ steps.check.outputs.behind_by }}\`"
+            echo "- Needs sync: \`${{ steps.check.outputs.has_changes }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Sync fork branch
+        if: steps.check.outputs.has_changes == 'true'
+        run: |
+          set -euo pipefail
+
+          gh repo sync "${GITHUB_REPOSITORY}" \
+            --source "${{ steps.upstream.outputs.repo }}" \
+            --branch "${BRANCH}"
+
+      - name: Report successful sync
+        if: steps.check.outputs.has_changes == 'true'
+        run: |
+          echo "Sync completed successfully."
+          {
+            echo ""
+            echo "### Result"
+            echo ""
+            echo "Sync completed successfully."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: No sync needed
+        if: steps.check.outputs.has_changes != 'true'
+        run: |
+          echo "No upstream changes to sync."
+          {
+            echo ""
+            echo "### Result"
+            echo ""
+            echo "No upstream changes to sync."
+          } >> "$GITHUB_STEP_SUMMARY"
