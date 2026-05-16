@@ -23,10 +23,11 @@ jobs:
         run: |
           set -euo pipefail
 
-          parent_repo=$(gh repo view "${GITHUB_REPOSITORY}" --json parent --jq '.parent.nameWithOwner')
+          parent_repo=$(gh api "/repos/${GITHUB_REPOSITORY}" --jq '.parent.full_name')
 
           if [ -z "${parent_repo}" ] || [ "${parent_repo}" = "null" ]; then
-            echo "This repository does not appear to be a fork or has no parent configured."
+            echo "Repository: ${GITHUB_REPOSITORY}"
+            echo "Could not detect parent fork relationship from API."
             exit 1
           fi
 
