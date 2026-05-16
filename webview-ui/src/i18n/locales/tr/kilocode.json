@@ -7,7 +7,7 @@
 		},
 		"premiumModels": {
 			"title": "Premium modeller",
-			"description": "Kaydolun. Yeni kullanıcılar 2,50 $ kredi alır"
+			"description": "Kaydolun ve premium modellere erişin"
 		},
 		"byok": {
 			"title": "Kendi anahtarınızı kullanın",
@@ -101,7 +101,6 @@
 		"modelInfo": {
 			"contextWindow": "Bağlam penceresi",
 			"providerBreakdown": "Sağlayıcı Fiyat ve Yetenek Dökümü",
-			"averageKiloCodeCost": "Bu, Kilo Code'un bu modeli kullanarak geçtiğimiz hafta boyunca yaptığı ortalama gerçek harcamadır. Prompt önbellek kullanımı nedeniyle listelenen fiyattan daha düşük olabilir.",
 			"table": {
 				"provider": "Sağlayıcı",
 				"context": "Uç nokta bu sayıda token işleyebilir (giriş + çıkış).",

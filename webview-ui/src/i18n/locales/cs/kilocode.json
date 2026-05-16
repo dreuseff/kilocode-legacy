@@ -7,7 +7,7 @@
 		},
 		"premiumModels": {
 			"title": "Prémiové modely",
-			"description": "Zaregistruj se. Noví uživatelé získají kredit 2,50 $"
+			"description": "Zaregistruj se a získej přístup k prémiovým modelům"
 		},
 		"byok": {
 			"title": "Použij vlastní klíč",
@@ -96,7 +96,6 @@
 		"modelInfo": {
 			"contextWindow": "Kontextové okno",
 			"providerBreakdown": "Rozpis cen a schopností poskytovatelů",
-			"averageKiloCodeCost": "Toto jsou průměrné skutečné náklady za použití tohoto modelu v Kilo Code za poslední týden. Může být nižší než uvedená cena díky využití cache pro prompty.",
 			"table": {
 				"provider": "Poskytovatel",
 				"context": "Endpoint může zpracovat tento počet tokenů (vstup + výstup).",

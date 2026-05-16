@@ -1,5 +1,35 @@
 # kilo-code
 
+## 5.16.1
+
+### Patch Changes
+
+- [#143](https://github.com/Kilo-Org/kilocode-legacy/pull/143) [`6b213f5`](https://github.com/Kilo-Org/kilocode-legacy/commit/6b213f59035b99905bc7f2c7f5634be1a664016e) Thanks [@kilo-code-bot](https://github.com/apps/kilo-code-bot)! - Bump diff, dompurify, uuid, and next to address security advisories
+
+- [#140](https://github.com/Kilo-Org/kilocode-legacy/pull/140) [`37013a4`](https://github.com/Kilo-Org/kilocode-legacy/commit/37013a42c59b34c36a00c385b65ef508973e0b05) Thanks [@hdcodedev](https://github.com/hdcodedev)! - fix(jetbrains): use application-scoped commit message service
+
+## 5.16.0
+
+### Minor Changes
+
+- [#135](https://github.com/Kilo-Org/kilocode-legacy/pull/135) [`c7da025`](https://github.com/Kilo-Org/kilocode-legacy/commit/c7da025b78c20e303149bba20021d69e80533710) Thanks [@kilo-code-bot](https://github.com/apps/kilo-code-bot)! - Add support for DeepSeek V4 Pro and DeepSeek V4 Flash models with 1M context window
+
+## 5.15.0
+
+### Minor Changes
+
+- [#133](https://github.com/Kilo-Org/kilocode-legacy/pull/133) [`bcb72e7`](https://github.com/Kilo-Org/kilocode-legacy/commit/bcb72e749d363ad6d6a80f44338b3ceefebaa6b0) Thanks [@kilo-code-bot](https://github.com/apps/kilo-code-bot)! - Add support for GPT-5.5 when using OpenAI via a ChatGPT Plus/Pro subscription
+
+### Patch Changes
+
+- [#130](https://github.com/Kilo-Org/kilocode-legacy/pull/130) [`b43dcdb`](https://github.com/Kilo-Org/kilocode-legacy/commit/b43dcdbd371e9f4296e5f52eaf40763953a87f54) Thanks [@kilo-code-bot](https://github.com/apps/kilo-code-bot)! - Remove model stats fetch from the model info view since the backing endpoint has been retired.
+
+## 5.14.0
+
+### Minor Changes
+
+- [#125](https://github.com/Kilo-Org/kilocode-legacy/pull/125) [`5eb9271`](https://github.com/Kilo-Org/kilocode-legacy/commit/5eb9271b89a09d893c1812ba0ecc640b1a567938) Thanks [@kilo-code-bot](https://github.com/apps/kilo-code-bot)! - Add support for Kimi K2.6 on Moonshot and Fireworks providers
+
 ## 5.13.0
 
 ### Minor Changes
