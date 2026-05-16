@@ -2,7 +2,7 @@ name: Sync fork from upstream
 
 on:
   schedule:
-    - cron: '0 7 * * 1,4' # 07:00 UTC on Monday and Thursday
+    - cron: '13 3 * * 0'
   workflow_dispatch:
 
 permissions:
@@ -15,24 +15,15 @@ jobs:
 
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      UPSTREAM_REPO: Kilo-Org/kilocode-legacy
       BRANCH: main
 
     steps:
-      - name: Detect upstream parent repo
-        id: upstream
+      - name: Show workflow context
         run: |
-          set -euo pipefail
-
-          parent_repo=$(gh api "/repos/${GITHUB_REPOSITORY}" --jq '.parent.full_name')
-
-          if [ -z "${parent_repo}" ] || [ "${parent_repo}" = "null" ]; then
-            echo "Repository: ${GITHUB_REPOSITORY}"
-            echo "Could not detect parent fork relationship from API."
-            exit 1
-          fi
-
-          echo "repo=${parent_repo}" >> "$GITHUB_OUTPUT"
-          echo "Upstream parent repo: ${parent_repo}"
+          echo "Fork repo: ${GITHUB_REPOSITORY}"
+          echo "Upstream repo: ${UPSTREAM_REPO}"
+          echo "Branch: ${BRANCH}"
 
       - name: Check whether fork is behind upstream
         id: check
@@ -40,7 +31,7 @@ jobs:
           set -euo pipefail
 
           behind_by=$(gh api \
-            "/repos/${{ steps.upstream.outputs.repo }}/compare/${BRANCH}...${GITHUB_REPOSITORY}:${BRANCH}" \
+            "/repos/${UPSTREAM_REPO}/compare/${BRANCH}...${GITHUB_REPOSITORY}:${BRANCH}" \
             --jq '.behind_by')
 
           echo "behind_by=${behind_by}" >> "$GITHUB_OUTPUT"
@@ -53,19 +44,13 @@ jobs:
             echo "Fork is already up to date."
           fi
 
-      - name: Show sync status
-        run: |
-          echo "Upstream repo: ${{ steps.upstream.outputs.repo }}"
-          echo "Branch: ${BRANCH}"
-          echo "behind_by: ${{ steps.check.outputs.behind_by }}"
-          echo "has_changes: ${{ steps.check.outputs.has_changes }}"
-
-      - name: Add job summary
+      - name: Add summary
         run: |
           {
             echo "## Fork sync status"
             echo ""
-            echo "- Upstream repo: \`${{ steps.upstream.outputs.repo }}\`"
+            echo "- Fork repo: \`${GITHUB_REPOSITORY}\`"
+            echo "- Upstream repo: \`${UPSTREAM_REPO}\`"
             echo "- Branch: \`${BRANCH}\`"
             echo "- behind_by: \`${{ steps.check.outputs.behind_by }}\`"
             echo "- Needs sync: \`${{ steps.check.outputs.has_changes }}\`"
@@ -77,27 +62,9 @@ jobs:
           set -euo pipefail
 
           gh repo sync "${GITHUB_REPOSITORY}" \
-            --source "${{ steps.upstream.outputs.repo }}" \
+            --source "${UPSTREAM_REPO}" \
             --branch "${BRANCH}"
 
-      - name: Report successful sync
-        if: steps.check.outputs.has_changes == 'true'
-        run: |
-          echo "Sync completed successfully."
-          {
-            echo ""
-            echo "### Result"
-            echo ""
-            echo "Sync completed successfully."
-          } >> "$GITHUB_STEP_SUMMARY"
-
-      - name: No sync needed
+      - name: Report no sync needed
         if: steps.check.outputs.has_changes != 'true'
-        run: |
-          echo "No upstream changes to sync."
-          {
-            echo ""
-            echo "### Result"
-            echo ""
-            echo "No upstream changes to sync."
-          } >> "$GITHUB_STEP_SUMMARY"
+        run: echo "No upstream changes to sync."
