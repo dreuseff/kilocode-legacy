@@ -8,6 +8,9 @@
 
 # 🚀 Kilo
 
+> [!IMPORTANT]
+> The legacy Kilo Code VS Code extension and JetBrains plugin reach end of life on July 31, 2026. Kilo will provide no updates or maintenance after that date. The code remains available for community forks, and the frozen user manual is in [`docs/legacy-ides/`](docs/legacy-ides/README.md). Current IDE products are developed in [Kilo-Org/kilocode](https://github.com/Kilo-Org/kilocode), with current documentation at [kilo.ai/docs](https://kilo.ai/docs).
+
 > Kilo is the all-in-one agentic engineering platform. Build, ship, and iterate faster with the most popular open source coding agent.
 
 - ✨ Generate code from natural language
