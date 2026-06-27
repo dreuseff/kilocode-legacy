@@ -1,6 +1,9 @@
 # Legacy IDE Documentation
 
-This manual documents the previous Kilo Code VS Code extension and its JetBrains wrapper. Pages describe shared behavior unless a section is explicitly labeled for one IDE.
+> [!IMPORTANT]
+> This frozen manual documents the previous Kilo Code VS Code extension and JetBrains plugin, which reach end of life on July 31, 2026. For the current IDE products and live-service topics such as accounts, billing, and the Kilo Gateway, use the [current documentation](https://kilo.ai/docs).
+
+Pages describe shared legacy behavior unless a section is explicitly labeled for one IDE.
 
 ## Getting Started
 

@@ -28,16 +28,11 @@ While the specifics change constantly, some principles stay consistent:
 
 **For local/private work**: Ollama and LM Studio let you run models locally. The tradeoff is usually speed and capability for privacy and zero API costs.
 
-**Using an unlisted model?** You can register any model — including fine-tunes, newly released models, or custom local models — by adding it to your config file. See [Custom Models](https://kilo.ai/docs/code-with-ai/agents/custom-models) for details.
+**Using an unlisted model?** Providers such as Ollama, LM Studio, and OpenAI Compatible accept a model ID directly in the API Provider settings.
 
 ## Free and Budget Model Picks
 
-You don't need a paid API key to use Kilo Code productively. The fastest way to start for free is [Auto Model Free](https://kilo.ai/docs/code-with-ai/agents/auto-model) (`kilo-auto/free`), which routes to the best available free models automatically. See [Using Kilo for Free](https://kilo.ai/docs/getting-started/using-kilo-for-free) for the full zero-cost setup.
-
-If you prefer to pick models yourself, type `free` in the model picker to filter by free models, or browse the full list at [kilo.ai/models](https://kilo.ai/models).
-
-> **Info:**
-> Free model availability changes as providers adjust promotional periods. Check [kilo.ai/models](https://kilo.ai/models) for the live list.
+Free model availability changes as providers adjust promotional periods. Check [kilo.ai/models](https://kilo.ai/models) for the current list, then select the corresponding provider and model in an API profile.
 
 ## Context Windows Matter
 
@@ -56,17 +51,13 @@ Check [our provider docs](../../ai-providers/README.md) for specific context lim
 
 ## Models During Delegation
 
-When an agent delegates work to a subagent (via the `task` tool), the subagent **inherits the parent agent's model** by default. You can override this per subagent in your config:
-
-In the legacy extension, each mode has **Sticky Models** — switching from one mode to another (e.g., Code → Architect) uses whatever model you last selected for that mode, not the model from the mode you came from. This means you can assign different models to different modes:
+Each mode has **Sticky Models**. Switching from one mode to another (for example, Code to Architect) uses the API profile last selected for the destination mode. This means you can assign different models to different modes:
 
 - **Architect:** a reasoning-heavy model (Gemini Pro, Claude Opus)
 - **Code:** a fast coding model (Claude Sonnet, GPT-4.1)
 - **Debug:** a cost-efficient model (Gemini Flash, DeepSeek)
 
-The model selection is remembered per mode across sessions.
-
-For details on configuring subagent models, see [Custom Subagents](https://kilo.ai/docs/customize/custom-subagents).
+The API profile selection is remembered per mode across sessions and also applies when a task delegates work to another mode.
 
 ## Stay Current
 

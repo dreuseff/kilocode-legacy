@@ -1,55 +1,24 @@
 # Installation
 
-Get started with Kilo Code by installing it on your preferred platform. Choose your development environment below:
+This page records the requirements of the previous Kilo Code IDE products. The Marketplace identities are shared with the current products, so Marketplace installation links no longer select the legacy implementation.
 
-## Choose Your Platform
+> [!WARNING]
+> Legacy builds are no longer supported or distributed for new installations. Use the [current installation guide](https://kilo.ai/docs/getting-started/installing). The source remains available in this repository for community forks.
 
 ## VS Code
 
-## VS Code Legacy Extension
-
-This is the previous Kilo Code extension for VS Code.
-
-To install or switch back to the legacy version:
-
-1. Open VS Code
-2. Go to Extensions (`Ctrl+Shift+X` / `Cmd+Shift+X`)
-3. Search for "Kilo Code"
-4. Click the dropdown arrow next to **Install** and select **Switch to Release Version**
-
-## JetBrains
+The legacy VS Code extension used the `kilocode.Kilo-Code` Marketplace identity now used by the current extension. This manual applies only to an existing legacy installation or a build created from this repository.
 
 ## JetBrains IDEs
 
-Kilo Code supports all JetBrains IDEs including IntelliJ IDEA, WebStorm, PyCharm, and more.
+The legacy JetBrains wrapper used Marketplace plugin ID `28350`, which is also used by the current native plugin. This manual applies only to an existing legacy installation or a build created from this repository.
 
-### Prerequisites
+### Legacy Prerequisites
 
-Before installing the Kilo Code plugin, ensure you have:
+The legacy wrapper required:
 
-1. **JetBrains Toolbox (Recommended):**
-
-    - Download from [https://www.jetbrains.com/toolbox-app/](https://www.jetbrains.com/toolbox-app/)
-    - Toolbox is required for authentication callbacks to work properly
-    - Without Toolbox, you'll need to manually configure API keys
-
-2. **Node.js:**
-    - Download LTS version from [https://nodejs.org/](https://nodejs.org/)
-
-### Install directly
-
-1. If you don't have a JetBrains IDE installed, download one from [jetbrains.com](https://www.jetbrains.com/)
-2. Then, you can click the button below to install Kilo Code directly from the JetBrains Marketplace:
-
-[![Install Kilo Code](https://raster.shields.io/badge/Install%20Kilo%20Code-F8F674?style=for-the-badge)](https://plugins.jetbrains.com/plugin/28350-kilo-code)
-
-### Install from JetBrains Marketplace
-
-1. Open your JetBrains IDE
-2. Go to **Settings/Preferences → Plugins**
-3. Click **Marketplace** tab
-4. Search for "Kilo Code"
-5. Click **Install** and restart your IDE
+1. **JetBrains Toolbox (recommended)** for authentication callbacks
+2. **Node.js LTS** for the extension host
 
 ### Supported IDEs
 

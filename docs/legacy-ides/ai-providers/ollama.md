@@ -73,29 +73,7 @@ By default, API requests time out after 10 minutes. Local models can be slow, if
 
 ## Using Custom or Unlisted Models
 
-If your Ollama model doesn't appear in the Kilo model picker, register it as a custom model in your config file:
-
-```jsonc
-{
-	"model": "ollama/my-finetune:latest",
-	"provider": {
-		"ollama": {
-			"models": {
-				"my-finetune:latest": {
-					"name": "My Fine-tuned Model",
-					"tool_call": true,
-					"limit": {
-						"context": 32768,
-						"output": 8192,
-					},
-				},
-			},
-		},
-	},
-}
-```
-
-See [Custom Models](https://kilo.ai/docs/code-with-ai/agents/custom-models) for the full list of configuration fields and more examples.
+Enter the model name served by Ollama directly in the **Model ID** field. If the model is not available locally, download it with `ollama pull <model_name>`, then reopen the provider settings to refresh the detected model list.
 
 ## Further Reading
 
