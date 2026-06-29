@@ -48,5 +48,5 @@ After installation, check out these resources to get started:
 If you encounter issues not covered here:
 
 - Join our [Discord community](https://kilo.ai/discord) for real-time support
-- Submit issues on [GitHub](https://github.com/Kilo-Org/kilocode/issues)
+- Submit issues on [GitHub](https://github.com/Kilo-Org/kilocode-legacy/issues)
 - Visit our [Reddit community](https://www.reddit.com/r/KiloCode)

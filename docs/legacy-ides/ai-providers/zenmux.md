@@ -188,4 +188,4 @@ For additional support:
 
 - Visit the [ZenMux documentation](https://zenmux.ai/docs)
 - Contact ZenMux support through their dashboard
-- Check the [Kilo Code GitHub repository](https://github.com/Kilo-Org/kilocode) for integration-specific issues
+- Check the [Kilo Code legacy GitHub repository](https://github.com/Kilo-Org/kilocode-legacy) for integration-specific issues
