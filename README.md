@@ -8,6 +8,9 @@
 
 # 🚀 Kilo
 
+> [!IMPORTANT]
+> The legacy Kilo Code VS Code extension and JetBrains plugin reach end of life on July 31, 2026. Kilo will provide no updates or maintenance after that date. The code remains available for community forks, and the frozen user manual is in [`docs/legacy-ides/`](docs/legacy-ides/README.md). Current IDE products are developed in [Kilo-Org/kilocode](https://github.com/Kilo-Org/kilocode), with current documentation at [kilo.ai/docs](https://kilo.ai/docs).
+
 > Kilo is the all-in-one agentic engineering platform. Build, ship, and iterate faster with the most popular open source coding agent.
 
 - ✨ Generate code from natural language
@@ -21,8 +24,9 @@
 
 ## Quick Links
 
-- [VS Code Marketplace](https://kilo.ai/vscode-marketplace?utm_source=Readme) (download)
-- [Official Kilo.ai Home page](https://kilo.ai) (learn more)
+- [Current Kilo Code documentation](https://kilo.ai/docs)
+- [Current VS Code product](https://kilo.ai/vscode-marketplace?utm_source=Readme)
+- [Official Kilo.ai home page](https://kilo.ai)
 
 > 🚀 **Coming from Roo Code?** Switch to Kilo and check out our [migration guide](https://kilo.ai/articles/roo-to-kilo-migration-guide)!
 
@@ -35,13 +39,9 @@
 - **MCP Server Marketplace**: Kilo can easily find, and use MCP servers to extend the agent capabilities.
 - **Multi Mode**: Plan with Architect, Code with Coder, and Debug with Debugger, and make your own custom modes.
 
-## Get Started
+## Use Current Kilo Code
 
-1. Install the Kilo Code extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=kilocode.Kilo-Code).
-2. Create your account to access 500+ cutting-edge AI models including GPT-5.5, Claude Opus 4.7, Claude Sonnet 4.6, and Gemini 3.1 Pro Preview, with transparent pricing that matches provider rates exactly.
-3. Start coding with AI that adapts to your workflow. Watch our quick-start guide to see Kilo in action:
-
-[![Watch the video](https://img.youtube.com/vi/pqGfYXgrhig/maxresdefault.jpg)](https://youtu.be/pqGfYXgrhig)
+The VS Code and JetBrains Marketplace identities now deliver the current Kilo Code products, not the legacy implementation in this repository. Follow the [current installation guide](https://kilo.ai/docs/getting-started/installing) for a supported product. The legacy source remains available here for community forks and historical reference.
 
 ## Developer Setup
 
